@@ -5,11 +5,11 @@ import joblib
 app = Flask(__name__)
 
 # Load the trained models and encoders
-scaler = joblib.load('/home/Aparnarameshra95/mysite/robust_scaler1.pkl')
-encoder = joblib.load('/home/Aparnarameshra95/mysite/onehot_encoder1.pkl')
-target_encoder = joblib.load('/home/Aparnarameshra95/mysite/target_encoder1.pkl')
-rfe_model = joblib.load('/home/Aparnarameshra95/mysite/rfe_model1.pkl')
-best_model = joblib.load('/home/Aparnarameshra95/mysite/model1.pkl')
+scaler = joblib.load('robust_scaler1.pkl')
+encoder = joblib.load('onehot_encoder1.pkl')
+target_encoder = joblib.load('target_encoder1.pkl')
+rfe_model = joblib.load('rfe_model1.pkl')
+best_model = joblib.load('model1.pkl')
 
 # Feature list for proper input mapping
 selected_features = ['Age', 'Items Purchased', 'Total Spent', 'Discount (%)',

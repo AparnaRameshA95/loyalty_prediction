@@ -1,64 +1,74 @@
-<form action="/predict" method="POST">
-    <label>Age:</label><br>
-    <input type="number" name="age" required><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+    <h1>Loyalty Category Prediction</h1>
+    <form action="/predict" method="POST">
+        <label>Age:</label><br>
+        <input type="number" name="age" required><br><br>
 
-    <label>Gender:</label><br>
-    <select name="gender">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Other">Other</option>
-    </select><br><br>
+        <label>Gender:</label><br>
+        <select name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br><br>
 
-    <label>Region:</label><br>
-    <select name="region">
-        <option value="North">North</option>
-        <option value="South">South</option>
-        <option value="East">East</option>
-        <option value="West">West</option>
-    </select><br><br>
+        <label>Region:</label><br>
+        <select name="region">
+            <option value="North">North</option>
+            <option value="South">South</option>
+            <option value="East">East</option>
+            <option value="West">West</option>
+        </select><br><br>
 
-    <label>Preferred Visit Time:</label><br>
-    <select name="visit_time">
-        <option value="Morning">Morning</option>
-        <option value="Afternoon">Afternoon</option>
-        <option value="Evening">Evening</option>
-    </select><br><br>
+        <label>Preferred Visit Time:</label><br>
+        <select name="visit_time">
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+        </select><br><br>
 
-    <label>Items Purchased:</label><br>
-    <input type="number" name="items_purchased" required><br><br>
+        <label>Items Purchased:</label><br>
+        <input type="number" name="items_purchased" required><br><br>
 
-    <label>Total Spent:</label><br>
-    <input type="number" name="total_spent" required><br><br>
+        <label>Total Spent:</label><br>
+        <input type="number" name="total_spent" required><br><br>
 
-    <label>Discount (%):</label><br>
-    <input type="number" name="discount" required><br><br>
+        <label>Discount (%):</label><br>
+        <input type="number" name="discount" required><br><br>
 
-    <label>Revenue:</label><br>
-    <input type="number" name="revenue" required><br><br>
+        <label>Revenue:</label><br>
+        <input type="number" name="revenue" required><br><br>
 
-    <label>Product Category:</label><br>
-    <select name="product_category">
-        <option value="Accessories">Accessories</option>
-        <option value="Laptop">Laptop</option>
-        <option value="Tablet">Tablet</option>
-        <option value="Television">Television</option>
-        <option value="Mobile">Mobile</option>
-    </select><br><br>
+        <label>Product Category:</label><br>
+        <select name="product_category">
+            <option value="Accessories">Accessories</option>
+            <option value="Laptop">Laptop</option>
+            <option value="Tablet">Tablet</option>
+            <option value="Television">Television</option>
+            <option value="Mobile">Mobile</option>
+        </select><br><br>
 
-    <label>Payment Method:</label><br>
-    <select name="payment_method">
-        <option value="Cash">Cash</option>
-        <option value="Credit Card">Credit Card</option>
-        <option value="Debit Card">Debit Card</option>
-        <option value="UPI">UPI</option>
-        <option value="Net Banking">Net Banking</option> 
-    </select><br><br>
+        <label>Payment Method:</label><br>
+        <select name="payment_method">
+            <option value="Cash">Cash</option>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="UPI">UPI</option>
+            <option value="Net Banking">Net Banking</option> 
+        </select><br><br>
 
-    <label>Satisfaction Score:</label><br>
-    <input type="number" name="satisfaction_score" required><br><br>
+        <label>Satisfaction Score:</label><br>
+        <input type="number" name="satisfaction_score" required><br><br>
 
-    <button type="submit">Predict</button>
-</form>
+        <button type="submit">Predict</button>
+    </form>
 
        
 
