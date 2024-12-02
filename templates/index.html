@@ -1,105 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loyalty Category Prediction</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <script>
-        async function predictLoyalty() {
-            const data = {
-                "Age": parseInt(document.getElementById("age").value),
-                "Items Purchased": parseInt(document.getElementById("items_purchased").value),
-                "Total Spent": parseFloat(document.getElementById("total_spent").value),
-                "Discount (%)": parseFloat(document.getElementById("discount").value),
-                "Satisfaction Score": parseInt(document.getElementById("satisfaction_score").value),
-                "Revenue": parseFloat(document.getElementById("revenue").value),
-                "Gender": document.getElementById("gender").value,
-                "Region": document.getElementById("region").value,
-                "Product Category": document.getElementById("product_category").value,
-                "Preferred Visit Time": document.getElementById("visit_time").value,
-                "Payment Method": document.getElementById("payment_method").value
-                
-            };
+<form action="/predict" method="POST">
+    <label>Age:</label><br>
+    <input type="number" name="age" required><br><br>
 
-            const response = await fetch('/predict', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
+    <label>Gender:</label><br>
+    <select name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+    </select><br><br>
 
-            const result = await response.json();
-            document.getElementById("result").innerText = result.error || `Loyalty Category: ${result['Loyalty Category']}`;
-        }
-    </script>
-</head>
-<body>
-    <h1>Loyalty Category Prediction</h1>
-    <form onsubmit="event.preventDefault(); predictLoyalty();">
-        <label>Age:</label><br>
-        <input type="number" id="age" required><br><br>
+    <label>Region:</label><br>
+    <select name="region">
+        <option value="North">North</option>
+        <option value="South">South</option>
+        <option value="East">East</option>
+        <option value="West">West</option>
+    </select><br><br>
 
-        <label>Gender:</label><br>
-        <select id="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-        </select><br><br>
+    <label>Preferred Visit Time:</label><br>
+    <select name="visit_time">
+        <option value="Morning">Morning</option>
+        <option value="Afternoon">Afternoon</option>
+        <option value="Evening">Evening</option>
+    </select><br><br>
 
-        <label>Region:</label><br>
-        <select id="region">
-            <option value="North">North</option>
-            <option value="South">South</option>
-            <option value="East">East</option>
-            <option value="West">West</option>
-        </select><br><br>
+    <label>Items Purchased:</label><br>
+    <input type="number" name="items_purchased" required><br><br>
 
-        <label>Preferred Visit Time:</label><br>
-        <select id="visit_time">
-            <option value="Morning">Morning</option>
-            <option value="Afternoon">Afternoon</option>
-            <option value="Evening">Evening</option>
-        </select><br><br>
+    <label>Total Spent:</label><br>
+    <input type="number" name="total_spent" required><br><br>
 
-        <label>Items Purchased:</label><br>
-        <input type="number" id="items_purchased" required><br><br>
+    <label>Discount (%):</label><br>
+    <input type="number" name="discount" required><br><br>
 
-        <label>Total Spent:</label><br>
-        <input type="number" id="total_spent" required><br><br>
+    <label>Revenue:</label><br>
+    <input type="number" name="revenue" required><br><br>
 
-        <label>Discount (%):</label><br>
-        <input type="number" id="discount" required><br><br>
+    <label>Product Category:</label><br>
+    <select name="product_category">
+        <option value="Accessories">Accessories</option>
+        <option value="Laptop">Laptop</option>
+        <option value="Tablet">Tablet</option>
+        <option value="Television">Television</option>
+        <option value="Mobile">Mobile</option>
+    </select><br><br>
 
-        <label>Revenue:</label><br>
-        <input type="number" id="revenue" required><br><br>
+    <label>Payment Method:</label><br>
+    <select name="payment_method">
+        <option value="Cash">Cash</option>
+        <option value="Credit Card">Credit Card</option>
+        <option value="Debit Card">Debit Card</option>
+        <option value="UPI">UPI</option>
+        <option value="Net Banking">Net Banking</option> 
+    </select><br><br>
 
+    <label>Satisfaction Score:</label><br>
+    <input type="number" name="satisfaction_score" required><br><br>
 
-        <label>Product Category:</label><br>
-        <select id="product_category">
-            <option value="Accessories">Accessories</option>
-            <option value="Laptop">Laptop</option>
-            <option value="Tablet">Tablet</option>
-            <option value="Television">Television</option>
-            <option value="Mobile">Mobile</option>
-        </select><br><br>
+    <button type="submit">Predict</button>
+</form>
 
-        <label>Payment Method:</label><br>
-        <select id="payment_method">
-            <option value="Cash">Cash</option>
-            <option value="Credit Card">Credit Card</option>
-            <option value="Debit Card">Debit Card</option>
-            <option value="UPI">UPI</option>
-            <option value="Net Banking">Net Banking</option> 
-        </select><br><br>
-
-        <label>Satisfaction Score:</label><br>
-        <input type="number" id="satisfaction_score" required><br><br>
-        
-
-        <button type="submit">Predict</button>
-    </form>
-    <h2 id="result"></h2>
-</body>
-</html>
        
 
