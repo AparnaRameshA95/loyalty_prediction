@@ -2,24 +2,16 @@ from flask import Flask, request, jsonify, render_template
 import pandas as pd
 import pickle
 import numpy as np
+import joblib
 
 app = Flask(__name__)
 
 # Load the trained models and encoders
-with open('robust_scaler.pkl', 'rb') as file:
-    scaler = pickle.load(file)
-
-with open('onehot_encoder.pkl', 'rb') as file:
-    encoder = pickle.load(file)
-
-with open('target_encoder.pkl', 'rb') as file:
-    target_encoder = pickle.load(file)
-
-with open('rfe_model.pkl', 'rb') as file:
-    rfe_model = pickle.load(file)
-
-with open('best_model.pkl', 'rb') as file:
-    best_model = pickle.load(file)
+scaler = joblib.load('robust_scaler1.pkl')
+encoder = joblib.load('onehot_encoder1.pkl')
+target_encoder = joblib.load('target_encoder1.pkl')
+rfe_model = joblib.load('rfe_model1.pkl')
+best_model = joblib.load('best_model1.pkl')
 
 # Feature list for proper input mapping
 selected_features = ['Age', 'Items Purchased', 'Total Spent', 'Discount (%)',
